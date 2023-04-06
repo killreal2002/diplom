@@ -1,4 +1,4 @@
 env/
 webapp/config.py
-config.py
+config.*
 __pycache__/
