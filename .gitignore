@@ -1,4 +1,4 @@
 env/
-webapp/config.py
+diploma/webapp/config.py
 config.*
 __pycache__/
