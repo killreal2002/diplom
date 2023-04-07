@@ -4,7 +4,4 @@ config.*
 __pycache__/
 webapp/config.py
 *.db
-dc_crime_add_vars.csv
-DELHI_METRO_DATA.csv
-lesson4.ipynb
 .ipynb_checkpoints/
