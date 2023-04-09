@@ -1,6 +1,6 @@
 env/
 
-config.*
+config.py
 __pycache__/
 webapp/config.py
 *.db
