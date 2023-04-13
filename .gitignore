@@ -5,3 +5,4 @@ __pycache__/
 webapp/config.py
 *.db
 .ipynb_checkpoints/
+migrations/
