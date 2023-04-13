@@ -25,7 +25,7 @@ def process_login():
             login_user(user, remember=form.remember_me.data)
             flash("You are logged in")
             return redirect(url_for('news.index'))
-        
+      
     flash('Mistake in username or password')
     return redirect(url_for('user.login'))
 
@@ -46,12 +46,19 @@ def register():
 @blueprint.route('/process-reg', methods=['POST'])
 def process_reg():
     form = RegistrationForm()
-    if form.validate_on_submit:
+    if form.validate_on_submit():
         news_user = User(username=form.username.data, email=form.email.data, role='user')
         news_user.set_password(form.password.data)
         db.session.add(news_user)
         db.session.commit()
         flash('You are passed a registration')
         return redirect(url_for('user.login'))
-    flash('Please correct the errors in the form')
-    return redirect(url_for('user.register'))
+    else:
+        for field, errors in form.errors.items():
+            for error in errors:
+                flash('Problem in {} : {}'.format(
+                    getattr(form,field).label.text,
+                    error
+                ))
+        flash('Please correct the errors in the form')
+        return redirect(url_for('user.register'))
