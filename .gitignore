@@ -6,3 +6,4 @@ webapp/config.py
 *.db
 .ipynb_checkpoints/
 migrations/
+celerybeat-schedule
