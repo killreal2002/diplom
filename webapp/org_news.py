@@ -35,7 +35,8 @@ def save_news(title, url, published):
     news_exists = News.query.filter(News.url == url).count()
     print(news_exists)
     if not news_exists:
-        news_news = News(title=title, url=url, published=published)
+        published_str = published.isoformat()
+        news_news = News(title=title, url=url, published=published_str)
         db.session.add(news_news)
         db.session.commit()
 

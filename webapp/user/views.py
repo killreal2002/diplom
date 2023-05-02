@@ -4,13 +4,14 @@ from webapp.db import db
 
 from flask import Blueprint, flash, redirect, url_for, render_template
 from flask_login import current_user, login_user, logout_user
+from webapp.utils import get_redirect_target
 
 blueprint= Blueprint('user', __name__, url_prefix='/users')
 
 @blueprint.route('/login')
 def login():
     if current_user.is_authenticated:
-        return redirect(url_for('news.index'))
+        return redirect(get_redirect_target())
     title = 'Authorization'
     login_form = LoginForm()
     return render_template('user/login.html', page_title = title, form = login_form)
@@ -24,7 +25,7 @@ def process_login():
         if user and user.check_password(form.password.data):
             login_user(user, remember=form.remember_me.data)
             flash("You are logged in")
-            return redirect(url_for('news.index'))
+            return redirect(get_redirect_target())
       
     flash('Mistake in username or password')
     return redirect(url_for('user.login'))

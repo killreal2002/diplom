@@ -5,4 +5,4 @@ from webapp.org_news import get_news
 app = create_app()
 with app.app_context():
     dou.get_news_snippets()
-    dou.get_news_content()
+    dou.get_news_content() 

@@ -4,3 +4,7 @@
 .tg-promo img{
     max-width: 5%;
 }
+
+input[type="submit"] {
+    margin-top: 10px;
+  }
