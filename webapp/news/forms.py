@@ -12,3 +12,9 @@ class CommentForm(FlaskForm):
     def validate_news_id(self, news_id):
         if not News.query.get(news_id.data):
             raise ValidationError('Article with this ID doesnt exist')
+#Клас CommentForm описує форму для додавання коментаря до новини. Він успадковує клас FlaskForm.
+#news_id - приховане поле з ID новини, до якої додається коментар.
+#comment_text - текстове поле для введення коментаря.
+#submit - кнопка для відправки форми.
+#Метод validate_news_id виконує перевірку наявності новини з вказаним ID в базі даних. 
+#Якщо новина не знайдена, викликається помилка валідації з повідомленням "Article with this ID doesnt exist".

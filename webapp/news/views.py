@@ -15,6 +15,8 @@ def index():
     weather = weather_by_city(current_app.config['WEATHER_DEFAULT_CITY'])
     news_list = News.query.filter(News.text.isnot(None)).order_by(News.published.desc()).all()
     return render_template('news/index.html', page_title=title, weather=weather, news_list=news_list)
+#функція index() є однією з маршрутів веб-додатка, який обробляє запит до головної сторінки. 
+#Функція відображає погоду за замовчуванням та список новин, відсортованих за датою публікації.
 
 @blueprint.route('/news/<int:news_id>')
 def single_news(news_id):
@@ -24,6 +26,8 @@ def single_news(news_id):
         abort(404)
     comment_form = CommentForm(news_id=my_news.id)
     return render_template('news/single_news.html', page_title=my_news.title, news=my_news, comment_form=comment_form)
+#функція single_news(news_id) також є маршрутом веб-додатка і відображає сторінку новини за заданим news_id. 
+#Крім того, вона створює форму коментарів, яка передається у шаблон сторінки.
 
 @blueprint.route('/news/comment', methods=['POST'])
 @login_required
@@ -42,3 +46,6 @@ def add_comment():
                     error
                 ))
     return redirect(get_redirect_target())
+#функція add_comment() є маршрутом веб-додатка для додавання коментарів до новин. 
+#Функція перевіряє, чи форма коментарів валідна та додає коментар до бази даних. 
+#В іншому випадку вона відображає повідомлення про помилки на сторінку.

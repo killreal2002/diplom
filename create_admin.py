@@ -27,3 +27,7 @@ with app.app_context():
     db.session.add(new_user)
     db.session.commit()
     print("user created with id={}".format(new_user.id))
+
+#Створюється Flask-додаток, далі використовується контекст додатку для взаємодії
+# з базою даних та створення нового користувача з ролью адміністратора, 
+# ввівши користувачем ім'я та пароль.

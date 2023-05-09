@@ -23,3 +23,6 @@ def dou_content():
 def setup_periodic_tasks(sender, **kwargs):
     sender.add_periodic_task(crontab(minute='*/1'), dou_snippets.s())
     sender.add_periodic_task(crontab(minute='*/1'), dou_content.s())
+#Код створює Flask-додаток та об'єкт Celery, 
+#де останній дозволяє запускати задачі для отримання коротких та повних новин від DOU 
+#з використанням періодичної задачі за допомогою crontab.

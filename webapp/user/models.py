@@ -22,3 +22,9 @@ class User(db.Model, UserMixin):
 
     def __repr__(self):
         return '<User {}>'.format(self.username)
+    
+#Клас User наслідується від db.Model і UserMixin. 
+# Він містить поля id, username, password, role та email. 
+# Метод set_password() встановлює хеш-значення пароля користувача, 
+# метод check_password() перевіряє відповідність введеного пароля збереженому хеш-значенню пароля. 
+# Властивість is_admin повертає True, якщо користувач має роль адміністратора. Метод __repr__() повертає рядок з ім'ям користувача.

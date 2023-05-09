@@ -14,6 +14,10 @@ class News(db.Model):
 
     def __repr__(self):
         return 'News {} {}'.format(self.title, self.url)
+#Модель News містить поля id (первинний ключ), title (назва новини), url (URL-адреса новини), 
+#published (дата публікації) та text (текст новини). Модель Comment містить поля id (первинний ключ), text (текст коментаря), 
+#created (дата створення), news_id (зовнішній ключ, що посилається на id новини, 
+#до якої відноситься коментар) та user_id (зовнішній ключ, що посилається на id користувача, який залишив коментар)
     
 class Comment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -34,4 +38,6 @@ class Comment(db.Model):
 
     def __repr__(self):
         return '<Comment {}>'.format(self.id)
+#модель Comment містить відношення news і user, 
+#які посилаються на відповідні об'єкти моделі News і User, використовуючи зовнішні ключі.
     
