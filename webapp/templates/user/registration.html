@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
+        <h1><div class="mx-auto p-2" style="width: 300px;">{{ page_title }}</div></h1>
         {% include('messages.html') %} 
-        <div class="row">
-            <div class ="col-4">  
+        <div class="row" >
+            <div class="mx-auto p-2" style="width: 300px;">  
                 <form action="{{ url_for('user.process_reg') }}" method="POST">
                     {{ form.hidden_tag() }}
                     <div class="mb-3">
