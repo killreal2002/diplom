@@ -23,7 +23,7 @@ def weather_by_city(city_name):
                 except(IndexError, TypeError):
                     return False
     except(requests.RequestException, ValueError):
-        print('Net eror')
+        print('Net error')
         return False
     return False
 
